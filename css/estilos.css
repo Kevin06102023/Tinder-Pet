@@ -1,0 +1,48 @@
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f8ff;
+}
+
+.container {
+  text-align: center;
+  padding: 2rem;
+  max-width: 400px; /* Limitando el ancho del contenedor */
+  margin: 50px auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+h1, h2 {
+  color: #ff6347; /* Color de los encabezados */
+}
+
+input, textarea, button {
+  margin: 10px;
+  padding: 10px;
+  width: 80%; /* Cambiado a un ancho fijo para inputs y botones */
+  border: 1px solid #ccc; /* Borde para los inputs */
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+.btn {
+  padding: 10px 20px;
+  color: #fff;
+  background-color: #ff6347; /* Color de fondo del botón */
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Estilos para el botón "Tinder" */
+.btn-tinder {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ff5a5f; /* Color de fondo del botón Tinder */
+}
+
+.btn-tinder:hover {
+  background-color: #ff3b3f; /* Color al pasar el mouse */
+}

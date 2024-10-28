@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tinder Pet - Inicio</title>
+  <link rel="stylesheet" href="../css/Inicio.css"> <!-- CSS general -->
+</head>
+<body>
+  <div class="container">
+    <h1>Bienvenido a Tinder Pet</h1>
+    
+    <!-- Mostrar el mensaje de éxito si existe -->
+    <div id="message" class="message"></div>
+
+    <a href="../principal/Registro_propietario.html" class="btn">Registrarse como Propietario</a>
+    <a href="../principal/Inicio_sesion.html" class="btn">Iniciar Sesión</a>
+  </div>
+
+  <!-- Ventana emergente -->
+  <div id="myModal" class="modal">
+      <div class="modal-content">
+          <span class="close">&times;</span>
+          <p id="modal-message"></p>
+      </div>
+  </div>
+
+  <script>
+    // Limpiar el mensaje al cargar la página
+    window.onload = function() {
+        document.getElementById('message').textContent = '';
+    }
+
+    // Obtener el mensaje de la URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const message = urlParams.get('message');
+
+    // Si hay un mensaje, mostrarlo
+    if (message) {
+        document.getElementById('message').textContent = message;
+        document.getElementById('message').classList.add('success'); // Agregar clase CSS para estilizar el mensaje
+        showModal(message); // Mostrar el mensaje en la ventana emergente
+
+        // Limpiar el mensaje después de 5 segundos
+        setTimeout(() => {
+            document.getElementById('message').textContent = '';
+        }, 5000); // 5000 ms = 5 segundos
+    }
+
+    // Función para mostrar la ventana emergente
+    function showModal(message) {
+        const modal = document.getElementById("myModal");
+        const modalMessage = document.getElementById("modal-message");
+        modalMessage.innerText = message; // Asignar el mensaje
+        modal.style.display = "block"; // Mostrar la ventana emergente
+
+        // Cerrar la ventana emergente cuando el usuario hace clic en la "X"
+        const span = document.getElementsByClassName("close")[0];
+        span.onclick = function() {
+            modal.style.display = "none"; // Ocultar la ventana emergente
+        }
+
+        // Cerrar la ventana emergente si el usuario hace clic fuera de la ventana
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none"; // Ocultar la ventana emergente
+            }
+        }
+    }
+  </script>
+</body>
+</html>
